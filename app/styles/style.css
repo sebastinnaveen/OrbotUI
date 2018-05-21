@@ -1,0 +1,290 @@
+/* Empty. Add your own CSS if you like */
+
+/* Your application styles go here */
+/*
+ * Reset Stylesheet
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+/*
+ * Application stylesheet
+ */
+*{
+    font-family: 'Arial';
+    font-size: 14px;
+}
+html{
+    background-color: #e7e7e7;
+}
+body.chatAI-body{
+    min-width: 320px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+ul{
+    list-style: none;
+}
+br{
+    margin-bottom: 1em;
+}
+a{
+    color: #0066cc;
+    text-decoration: none;
+}
+header.pa-header{
+    background-color: #ffffff;
+    padding: 1em;
+    position: relative;
+}
+header.chatAI-header h1.chatAI-title{
+    font-size: 0.8em;
+}
+section.chatAI-main-container{
+    background-color: #f6f6f6;
+    padding: 1em;
+}
+
+.chatAI-title{
+    display: inline-block;
+}
+
+ul.chatAI-response-list li{
+    padding: 0.75em 0;
+    display: inline-block;
+    width: 100%;
+}
+.chatAI-response-item .chatAI-response-text{
+    display: inline-block;
+    padding: 0.75em;
+    background-color: #59f768;
+    color: #fff;
+    font-size: 1.1em;
+    margin: 0 0.7em;
+    width: 60%;
+    line-height: 1.5em;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+}
+
+.chatAI-response-item .chatAI-response-text-robot{
+    display: inline-block;
+    padding: 0.75em;
+    background-color: #58adf7;
+    color: #fff;
+    font-size: 1.1em;
+    margin: 0 0.7em;
+    width: 60%;
+    line-height: 1.5em;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+}
+.chatAI-response-system .chatAI-response-icon{
+    display: inline-block;
+    padding: 1.8em 1.8em;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    color: #CD040B;
+    background-size: 40%;
+}
+.chatAI-response-user .chatAI-response-icon img{
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 3.8em;
+    height: 3.8em;
+}
+.chatAI-response-system .chatAI-response-icon{
+    float: left;
+    background-image: url('../images/bot.jpg');
+    background-position: center center;
+    background-color: #fff;
+    background-repeat: no-repeat;
+}
+.chatAI-response-system .chatAI-response-text{
+    float: left;
+}
+.chatAI-response-user .chatAI-response-icon{
+    float: right;
+}
+.chatAI-response-user .chatAI-response-text{
+    float: right;
+}
+.chatAI-response-typing .chatAI-response-text{
+    padding: 1.5em 0.5em;
+    background: url('../images/loading.jpg') no-repeat left 1em transparent;
+    background-size: 15%;
+}
+.chatAI-response-system  {
+      padding: 0.75em 0.5em;
+    max-width: 97%;
+}
+.chatAI-response-card > span{
+    display: block;
+    padding: 0.5em;
+    color: #7c7c7c;
+    font-size: 0.8em;
+}
+.chatAI-response-card span.chatAI-card-header{
+    font-size: 1.1em;
+}
+.chatAI-response-card span.chatAI-card-footer{
+    border-top: 1px solid #e7e7e7;
+    margin-top: 0.8em;
+    padding-top: 1em;
+}
+footer.chatAI-footer{
+    padding: 2em 1.2em;
+    background-color: #e4e5e3;
+}
+footer.chatAI-footer input[type="text"]{
+    width: 96%;
+    line-height: 2em;
+    border: 1px solid #d8dada;
+    padding: 0.5em 2%;
+}
+section.chatAI-recording{
+    padding: 1em;
+    background-color: #fff;
+    display: block;
+    margin-bottom: 5em;
+}
+section.chatAI-recording > span{
+    display: block;
+    text-align: center;
+}
+section.chatAI-recording .chatAI-recording-title{
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 0.5em 0;
+}
+section.chatAI-recording .chatAI-recording-icon img{
+    width: 2.2em;
+    height: 3em;
+    padding: 0.8em 0;
+    cursor: pointer;
+}
+.findmoredetails {
+	margin-bottom: 4px;
+	font-weight: bold;
+
+}
+.detailsview {
+	font-size: 15px;
+	font-weight: bold;
+}

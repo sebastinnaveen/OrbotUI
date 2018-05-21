@@ -1,0 +1,163 @@
+<ion-view view-title="Chats">
+    <div class="bar bar-header bar-stable" >
+        <h1 class="title">OrgBot</h1>
+        <section style="margin-top: 5px;">
+            <!--<span class="pa-recording-title" ng-if="chat.listening">Listening...</span>-->
+            <div style="height: 50px; width: 50px;" ng-click='chats.logout()' ><img  style="height: 25px; width: 25px;" src="images/logout.jpg" alt="Recording" /></div>
+          </section>
+   
+      </div>
+  <ion-content style="margin-top: 48px;">
+      
+      
+        
+    <div class="pa-body">
+    <section id="chatAI-main-container" class="chatAI-main-container">
+      
+  <ul class="chatAI-response-list">
+
+    <li id="chatAI-response-item-01" class="chatAI-response-item chatAI-response-system">
+      <span class="chatAI-response-icon"></span>
+      <span class="chatAI-response-text-robot">{{chats.defaultText}}</span>
+    </li>
+
+
+
+       <div ng-repeat="info in chats.chatInfo track by $index ">
+
+           
+         <li ng-if="info.userInput !== ''" id="chatAI-response-item-02" class="chatAI-response-item chatAI-response-user">
+            <span class="chatAI-response-icon"><img src="images/customer.png" alt="user avatar" /></span>
+            <span class="chatAI-response-text" >
+            {{info.userInput }}
+            </span>
+        </li>
+
+        <li   id="chatAI-response-item-03" class="chatAI-response-item chatAI-response-system">
+                    <span class="chatAI-response-icon"></span>
+                    <span class="chatAI-response-text-robot"> {{info.description }}  </span>
+       </li>
+        
+        <div ng-if="info.type == 'List'" >
+            <div  ng-if="info.action == 'orgbot.holidays'">
+                <div class="list card" style="width: 60%" >
+                    <div ng-repeat="holiday in info.payload track by $index ">
+                        <a href="#" class="item" >
+                                {{holiday.date}} - {{holiday.weekday}} - {{holiday.holidayname}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div  ng-if="info.action == 'orgbot.help'">
+              <div class="list card" style="width: 60%" >
+                  <div ng-repeat="help in info.payload.help track by $index ">
+                      <a href="#" class="item" >
+                              {{help.title}}
+                      </a>
+                  </div>
+              </div>
+          </div>
+            
+        </div>
+        <div ng-if="info.type == 'Card'">
+            <div  ng-if="info.action == 'orgbot.employee'">
+                <div class="card" ng-repeat="employee in info.payload.employees track by $index " style="width: 40%">
+                        <div class="item item-divider">
+                           {{employee.name}}
+                        </div>
+                          <div class="item item-text-wrap">
+                            <p>{{employee.title}}</p>
+                            <p>{{employee.building}}</p>
+                            <p>{{employee.mobileno}}</p>
+                          </div>
+                        <div class="item item-divider">
+                        Email: {{employee.email}}
+                        </div>
+                </div>
+            </div>
+            <div  ng-if="info.action == 'orgbot.leaves'">
+              <div class="card" ng-repeat="leave in info.payload.leaves track by $index ">
+                <div class="item item-divider">
+                   {{leave.leavetype}}
+                </div>
+                  <div class="item item-text-wrap">
+                    <p>Total Leaves: {{leave.total}}</p>
+                    <p>Balance: {{leave.balance}}</p>
+                    <p>Used: {{leave.availed}}</p>
+                  </div>
+               
+        </div>
+            </div>
+
+        </div>
+         <!--<li   id="pa-response-item-03" class="pa-response-item pa-response-system">
+           <span class="pa-response-icon"></span>
+           <span class="pa-response-text"> {{info.description }}  </span>
+           <span class="pa-response-text" ng-if="info.url !== ''"> <a href="{{info.url }}">{{info.url }} </a>  {{info.buildNumber }}   </span>
+         </li>
+         <div ng-if="info.action == 'Meeting'">
+         <li class="pa-response-item pa-response-system pa-response-card">
+           <span class="pa-card-header">{{info.name}}</span>
+           <span class="pa-card-content">{{info.timeDetails}}</span>
+           <span class="pa-card-footer"><a href="#">Open Calendar Invite</a></span>
+         </li>
+       </div>-->
+
+       <!--<div ng-if="info.action == ''">
+						 <li   id="chatAI-response-item-03" class="chatAI-response-item chatAI-response-system">
+						   <span class="chatAI-response-icon"></span>
+						   <span class="chatAI-response-text"> {{info.description }}  </span>
+						 </li>
+					  </div>
+            <div ng-if="info.tickets.length !== 0">
+              <li ng-repeat="ticket in info.tickets track by $index " class="chatAI-response-item chatAI-response-system chatAI-response-card">
+  						<a ng-click="chat.getResponse(\'{{ticket}}\')">{{ticket}}</a>
+            </li>
+            </div>
+            <div ng-if="info.ticketDetails">
+              
+            </div> -->
+					 <!--<div ng-if="info.action == 'final'">
+						<li class="chatAI-response-item chatAI-response-system chatAI-response-card">
+						<span class="chatAI-card-header">{{info.name}}</span>
+						<span class="chatAI-card-content detailsview">{{info.description}}</span>
+
+						<br>
+						<span class="chatAI-card-footer" ng-if="info.url !== ''">
+						<span ng-if="info.fileType !=='youtube'">
+							<div class="findmoredetails"> You can learn more in the below URL: </div>
+							<a href='{{info.url}}'>{{info.url}}</a>
+						</span>
+
+							<span ng-if="info.fileType ==='youtube'">
+							<iframe ng-src="info.url" frameborder="0"></iframe> </span>
+						</span>
+
+						</li>
+
+          </div>-->
+     </div>
+
+
+
+    <li id="chatAI-response-typing"  ng-if="Loading"  class="chatAI-response-item chatAI-response-system pa-response-typing">
+      <span class="chatAI-response-icon"></span>
+      <span class="chatAI-response-text"></span>
+    </li>
+
+
+  </ul>
+
+</section>
+
+<footer id="chatAI-footer" class="chatAI-footer">
+  <input type="text"  ng-model="chats.txtChat" class="chatAI-command-input"  ng-keydown="$event.keyCode === 13 && chats.getResponse()"/>
+  <!--<div><a onclick="chat.getResponse()">Chat</a></div>-->
+</footer>
+<section class="chatAI-recording">
+  <!--<span class="pa-recording-title" ng-if="chat.listening">Listening...</span>-->
+  <span class="chatAI-recording-icon" ng-click='chats.sendVoice()'><img src="images/icon-recording.png" alt="Recording" /></span>
+</section>
+</div>
+  </ion-content>
+</ion-view>
